@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gymnasie Merit</title>
+
+    <style>
+        p {
+            margin: 2px;
+        }
+    </style>
+
+    <script>
+        function calcResult() {
+            var table = document.getElementById("table");
+            var e;
+            var coursePoints = 0;
+            var courseGradePoints = 0; 
+            var coursePassed = 0;
+            var totalMeritValue = 0;
+            var totalMeritResult = 0;
+
+            for (var i = 1; i < table.rows.length; i++) {
+                coursePoints = parseInt(table.rows[i].cells[1].innerHTML);
+                e = document.getElementById("course" + i);
+                courseGradePoints = e.options[e.selectedIndex].value;
+
+                totalMeritValue += coursePoints * courseGradePoints;
+
+                if (courseGradePoints != 0) {
+                    coursePassed++;
+                }
+            }
+
+            totalMeritResult = (totalMeritValue / 2400).toFixed(2);
+
+            if (coursePassed < 24) {
+                document.getElementById("resulttext").innerHTML = totalMeritResult + " Merit Poäng. Du har inte fått gymnasieexamen p.g.a. att du inte har fått 2400 kurspoäng.";
+            } else {
+                document.getElementById("resulttext").innerHTML = totalMeritResult + " Merit Poäng";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="table" border="1">
+        <tr>
+            <th>Kurs</th>
+            <th>Poäng</th>
+            <th>Betyg</th>
+        
+        </tr>
+        <tr>
+            <td>
+                <p>Matte 1</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course1">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Matte 2</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course2">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Matte 3</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course3">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Matte 4</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course4">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Engelska 5</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course5">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Engelska 6</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course6">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Historia 1a1</p>
+            </td>
+            <td>50</td>
+            <td>
+                <select name="" id="course7">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Idrott och hälsa 1</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course8">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Religionskunskap 1</p>
+            </td>
+            <td>50</td>
+            <td>
+                <select name="" id="course9">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Samhällskunskap 1b</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course10">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Svenska 1</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course11">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Svenska 2</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course12">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Svenska 3</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course13">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Gränssnittsdesign</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course14">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Fysik 1a</p>
+            </td>
+            <td>150</td>
+            <td>
+                <select name="" id="course15">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Kemi 1</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course16">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Teknik 1</p>
+            </td>
+            <td>150</td>
+            <td>
+                <select name="" id="course17">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Dator och nätverksteknik</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course18">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Programmering 1</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course19">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Programmering 2</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course20">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Webbutveckling 1</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course21">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Webbutveckling 2</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course22">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Webbserver programmering</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course23">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Fysik 2</p>
+            </td>
+            <td>100</td>
+            <td>
+                <select name="" id="course24">
+                    <option value="0">F</option>
+                    <option value="10">E</option>
+                    <option value="12.5">D</option>
+                    <option value="15">C</option>
+                    <option value="17.5">B</option>
+                    <option value="20">A</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <button onclick="calcResult()">Calculate</button>
+    <p id="resulttext">0 Merit Poäng</p>
+</body>
+
+</html>
